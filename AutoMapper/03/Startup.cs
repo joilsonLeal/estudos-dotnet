@@ -27,18 +27,7 @@ namespace _02
         {
             services.AddRazorPages();
 
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Anime, AnimeDto>()
-                .ForMember(s => s.Start, opt => opt.MapFrom(d => d.Airing_start))
-                .ForMember(s => s.Id, opt => opt.MapFrom(d => d.Mal_id))
-                .ForMember(s => s.Image, opt => opt.MapFrom(d => d.Image_url));
-            });
-
-            var mapper = config.CreateMapper();
-
-            services.AddSingleton(mapper);
-
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
