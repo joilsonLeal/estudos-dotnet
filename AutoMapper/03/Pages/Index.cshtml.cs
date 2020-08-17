@@ -44,6 +44,21 @@ namespace _02.Pages
                         throw;
                     }
                 }
+
+                List<Source> sources = new List<Source>()
+                {
+                    new Source()
+                    {
+                        Id = 1,
+                    },
+                    new SourceChild()
+                    {
+                        Id = 2,
+                        Name = "SourceChild",
+                    }
+                };
+
+                List<Destination> destinations = _mapper.Map<List<Destination>>(sources);
             }
         }
     }
