@@ -37,6 +37,7 @@ namespace _02.Pages
                     try
                     {
                         var animesDto = _mapper.Map<List<AnimeDto>>(animes.Animes);
+                        var animesList = _mapper.Map<List<Anime>>(animesDto);
                     }
                     catch (Exception e)
                     {
