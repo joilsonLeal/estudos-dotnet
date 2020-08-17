@@ -12,6 +12,11 @@ namespace MapLibrary
                 .ForMember(source => source.Id, opt => opt.MapFrom(destination => destination.Mal_id))
                 .ForMember(source => source.Image, opt => opt.MapFrom(destination => destination.Image_url))
                 .ForMember(source => source.Start, opt => opt.MapFrom(destination => destination.Airing_start));
+
+            CreateMap<Source, Destination>()
+                .Include<SourceChild, DestinationChild>();
+
+            CreateMap<SourceChild, DestinationChild>();
         }
     }
 }
