@@ -4,8 +4,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using _02.Model;
 using AutoMapper;
+using Lib;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -37,7 +37,6 @@ namespace _02.Pages
                     try
                     {
                         var animesDto = _mapper.Map<List<AnimeDto>>(animes.Animes);
-                        var animesList = _mapper.Map<List<Anime>>(animesDto);
                     }
                     catch (Exception e)
                     {

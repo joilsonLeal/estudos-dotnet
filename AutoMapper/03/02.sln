@@ -4,6 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02", "02.csproj", "{C57E504D-CF29-4286-9AA5-849594EE5899}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67B900CC-F496-4A43-9A8B-E3A8F4CCA3EE} = {67B900CC-F496-4A43-9A8B-E3A8F4CCA3EE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "..\Lib\Lib.csproj", "{6B06885A-A4D7-4B8A-9B10-E9AEBE60E4D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapLibrary", "..\MapLibrary\MapLibrary.csproj", "{67B900CC-F496-4A43-9A8B-E3A8F4CCA3EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,14 @@ Global
 		{C57E504D-CF29-4286-9AA5-849594EE5899}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C57E504D-CF29-4286-9AA5-849594EE5899}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C57E504D-CF29-4286-9AA5-849594EE5899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B06885A-A4D7-4B8A-9B10-E9AEBE60E4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B06885A-A4D7-4B8A-9B10-E9AEBE60E4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B06885A-A4D7-4B8A-9B10-E9AEBE60E4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B06885A-A4D7-4B8A-9B10-E9AEBE60E4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B900CC-F496-4A43-9A8B-E3A8F4CCA3EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B900CC-F496-4A43-9A8B-E3A8F4CCA3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B900CC-F496-4A43-9A8B-E3A8F4CCA3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B900CC-F496-4A43-9A8B-E3A8F4CCA3EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
