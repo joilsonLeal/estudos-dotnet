@@ -6,6 +6,7 @@ namespace MapLibrary
 {
     public class Mapping : Profile
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage( "Style", "IDE0009:O acesso de membro deve ser qualificado.", Justification = "<Pendente>" )]
         public Mapping()
         {
             CreateMap<Anime, AnimeDto>()
@@ -17,6 +18,11 @@ namespace MapLibrary
                 .Include<SourceChild, DestinationChild>();
 
             CreateMap<SourceChild, DestinationChild>();
+
+            CreateMap<SourceChild, SourceChild>();
+
+            CreateMap(typeof(GenericSource<>), typeof(GenericDestination<>));
+
         }
     }
 }

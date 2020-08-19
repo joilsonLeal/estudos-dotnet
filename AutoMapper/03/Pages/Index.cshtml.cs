@@ -59,6 +59,19 @@ namespace _02.Pages
                 };
 
                 List<Destination> destinations = _mapper.Map<List<Destination>>(sources);
+
+                try
+                {
+                    GenericSource<List<Source>> genericSource = new GenericSource<List<Source>>() { Value = sources };
+
+                    GenericDestination<List<Destination>> genericDestination = _mapper.Map<GenericDestination<List<Destination>>>( genericSource );
+                }
+                catch( Exception e )
+                {
+
+                    throw;
+                }
+
             }
         }
     }
