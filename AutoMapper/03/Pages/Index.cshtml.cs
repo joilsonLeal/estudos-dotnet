@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using AutoMapper;
 using Lib;
+using Lib.Enum;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -45,6 +46,8 @@ namespace _02.Pages
                     }
                 }
 
+                // inheritance mapping
+
                 List<Source> sources = new List<Source>()
                 {
                     new Source()
@@ -60,18 +63,17 @@ namespace _02.Pages
 
                 List<Destination> destinations = _mapper.Map<List<Destination>>(sources);
 
-                try
-                {
-                    GenericSource<List<Source>> genericSource = new GenericSource<List<Source>>() { Value = sources };
+                // generic mapping
 
-                    GenericDestination<List<Destination>> genericDestination = _mapper.Map<GenericDestination<List<Destination>>>( genericSource );
-                }
-                catch( Exception e )
-                {
+                GenericSource<List<Source>> genericSource = new GenericSource<List<Source>>() { Value = sources };
 
-                    throw;
-                }
+                GenericDestination<List<Destination>> genericDestination = _mapper.Map<GenericDestination<List<Destination>>>( genericSource );
 
+                // enum mapping
+
+                SourceEnum sourceEnum = SourceEnum.First;
+
+                DestinationEnum destinationEnum = _mapper.Map<DestinationEnum>( sourceEnum );
             }
         }
     }
