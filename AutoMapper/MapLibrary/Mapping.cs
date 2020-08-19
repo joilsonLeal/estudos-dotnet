@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using AutoMapper.Extensions.EnumMapping;
 using Lib;
+using Lib.Enum;
 using System;
 
 namespace MapLibrary
@@ -22,6 +24,10 @@ namespace MapLibrary
             CreateMap<SourceChild, SourceChild>();
 
             CreateMap(typeof(GenericSource<>), typeof(GenericDestination<>));
+
+            CreateMap<SourceEnum, DestinationEnum>()
+                .ConvertUsingEnumMapping(opt => opt.MapValue(SourceEnum.First, DestinationEnum.Default))
+                .ReverseMap();
 
         }
     }
