@@ -26,6 +26,13 @@ namespace _02.Pages
 
         public async Task OnGetAsync()
         {
+
+
+
+            string original = "0810";
+            string modified = original.Insert( 2, ":" );
+
+
             var baseAddress = new Uri("https://api.jikan.moe/v3/");
 
             using (var httpClient = new HttpClient { BaseAddress = baseAddress })
