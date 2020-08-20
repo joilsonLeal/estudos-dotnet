@@ -34,7 +34,10 @@ namespace _02
                 cfg.CreateMap<string, DateTime>().ConvertUsing( new DateTimeConverter() );
                 cfg.CreateMap<string, Type>().ConvertUsing<TypeTypeConverter>();
                 cfg.CreateMap<Source, Destination>();
-            });
+                cfg.CreateMap<SumSource, SumDestination>()
+                    .ForMember( dest => dest.Total, opt => opt.MapFrom<CustomResolver>() );
+                ;
+            } );
 
             var mapper = config.CreateMapper();
 
@@ -84,6 +87,14 @@ namespace _02
         public Type Convert( string source, Type destination, ResolutionContext context )
         {
             return Assembly.GetExecutingAssembly().GetType( source );
+        }
+    }
+
+    public class CustomResolver : IValueResolver<SumSource, SumDestination, int>
+    {
+        public int Resolve( SumSource source, SumDestination destination, int destMember, ResolutionContext context )
+        {
+            return source.Value1 + source.Value2;
         }
     }
 }

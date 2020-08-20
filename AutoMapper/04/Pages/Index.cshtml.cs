@@ -25,6 +25,7 @@ namespace _02.Pages
 
         public async Task OnGetAsync()
         {
+            // different type mapping
 
             var source = new Source
             {
@@ -32,16 +33,19 @@ namespace _02.Pages
                 Value2 = "20/08/2020",
                 Value3 = "System.Linq"
             };
-            try
-            {
-                Destination result = _mapper.Map<Source, Destination>( source );
+            
+            Destination result = _mapper.Map<Source, Destination>( source );
 
-            }
-            catch( Exception e )
-            {
+            // custom value resolver mapping
 
-                throw;
-            }
+            var sumSource = new SumSource
+            {
+                Value1 = 10,
+                Value2 = 11,
+            };
+
+            SumDestination sumDestination = _mapper.Map<SumSource, SumDestination>( sumSource );
+
         }
     }
 }
